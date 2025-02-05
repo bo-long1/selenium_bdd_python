@@ -1,3 +1,0 @@
-start virtual environment on:
-    + windows: .\env\Scripts\activate
-    + linux: source env/bin/activate

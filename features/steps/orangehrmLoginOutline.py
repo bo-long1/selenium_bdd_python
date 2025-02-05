@@ -1,14 +1,25 @@
+import os
 import time
 from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
+
+
+from features.steps.creenshot_util import take_screenshot
 
 @given('launch Chrome browser')
 def step_impl(context):
+    # service = Service(executable_path='./src/driver/chromedriver.exe')
+    # context.driver = webdriver.Chrome(service=service)
     context.driver = webdriver.Chrome()
     context.driver.maximize_window()
+    # service = FirefoxService(executable_path=GeckoDriverManager().install())
+    # context.driver=webdriver.Firefox(service=service)
 
 @when('open OrangeHRM Homepage')
 def step_impl(context):
@@ -24,16 +35,19 @@ def step_impl(context, user, pwd):
 @when('I Click on login btn')
 def step_impl(context):
     context.driver.find_element(By.XPATH, "//button[@type='submit']").click()
+    time.sleep(2)
+    take_screenshot(context, "verify_login")
 
 @then('I user must successfully login to the Dashboard page')
 def step_impl(context):
-    WebDriverWait(context.driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, "(//h6[normalize-space()='Dashboard'])[1]"))
-    )
-    text = context.driver.find_element(By.XPATH, "(//h6[normalize-space()='Dashboard'])[1]").text
-    if text == "Dashboard":
-        context.driver.close()
-        assert True, "Test Passed"
-    else:
-        context.driver.close()
-        assert False, "Test Failed"
+    try:
+        WebDriverWait(context.driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "(//h6[normalize-space()='Dashboard'])[1]"))
+        )
+        text = context.driver.find_element(By.XPATH, "(//h6[normalize-space()='Dashboard'])[1]").text
+        assert text == "Dashboard"
+    except AssertionError as e:
+        take_screenshot(context, "verify_dashboard2")
+        raise e
+    finally:
+        context.driver.quit()

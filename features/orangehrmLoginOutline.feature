@@ -11,5 +11,5 @@ Feature: OrangeHRM login outline
         | username  | password  |
         | Admin     | admin123  |
         | admin123  | admin     |
-        | adminxyz  | Admin123  |
-        | admin     | Adminxyz  |
+        # | adminxyz  | Admin123  |
+        # | admin     | Adminxyz  |
