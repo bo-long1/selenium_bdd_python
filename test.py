@@ -1,10 +1,22 @@
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
 
-# Khởi tạo WebDriver sử dụng WebDriverManager
-service = FirefoxService(executable_path=GeckoDriverManager().install())
-driver = webdriver.Firefox(service=service)
+chrome_options = Options()
+#chrome_options.add_argument("--headless")  # Chạy ẩn
+# chrome_options.add_argument("--no-sandbox")
+# chrome_options.add_argument("--disable-dev-shm-usage")
+
+service = ChromeService(ChromeDriverManager().install())  # Đảm bảo đường dẫn chính xác
+driver = webdriver.Chrome(service=service, options=chrome_options)
+
+# Mở trang web
 driver.get("https://www.google.com")
-print(driver.title)
+
+
+
+# Chụp màn hình
+driver.save_screenshot("screenshot.png")
+
 driver.quit()

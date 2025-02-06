@@ -1,6 +1,6 @@
 Feature: OrangeHRM login outline
 
-    Scenario Outline: Login to OrangeHRM with valid parameters
+    Scenario Outline: Login outline to OrangeHRM
         Given launch Chrome browser
         When open OrangeHRM Homepage
         And I Enter username "<username>" and password "<password>"
