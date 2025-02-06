@@ -1,6 +1,6 @@
-from datetime import datetime
+import allure
 import os
-from selenium import webdriver
+from datetime import datetime
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 
@@ -17,6 +17,10 @@ def take_screenshot(context, step_name, screenshots_dir="/screenshots"):
         
     except Exception as e:
         print(f"Error while saving screenshot: {e}")
+
+def before_all(context):
+    if not os.path.exists("allure-results"):
+        os.makedirs("allure-results")
 
 def after_step(context, step):
     if step.status == "failed":
