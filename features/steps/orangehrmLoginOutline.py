@@ -14,8 +14,9 @@ from selenium.webdriver.chrome.options import Options
 def step_impl(context):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # run web browser with headless option 
-    service = ChromeService(ChromeDriverManager().install())
-    context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    # service = ChromeService(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    context.driver = webdriver.Chrome(options=chrome_options)
     context.driver.maximize_window()
 
 @when('open OrangeHRM Homepage')
