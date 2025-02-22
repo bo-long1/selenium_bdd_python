@@ -27,4 +27,3 @@ def step_impl(context):
 @then('should see the title "The Internet"')
 def step_impl(context, title = "The Internet1"):
     assert context.driver.title == title
-    time.sleep(2)
