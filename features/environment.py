@@ -36,10 +36,10 @@ def take_screenshot(context, step_name):
 def before_all(context):
     """Khởi tạo WebDriver một lần duy nhất khi bắt đầu chạy test"""
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # Bật chế độ headless
-    chrome_options.add_argument("--disable-gpu")  # Giúp ổn định hơn trên Windows
-    chrome_options.add_argument("--no-sandbox") # Chạy không cần quyền root (hữu ích trên Linux)
-    chrome_options.add_argument("--disable-dev-shm-usage") # Giúp giảm lỗi trên Docker/Linux
+    chrome_options.add_argument("--headless")  # on mode headless
+    chrome_options.add_argument("--disable-gpu")  # More stable on Windows
+    chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
+    chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
 
     #context.driver = webdriver.Firefox()
     #context.driver = webdriver.Edge()
@@ -48,10 +48,10 @@ def before_all(context):
     print("🚀 WebDriver initialized!")
 
 def before_scenario(context, scenario):
-    """Mở trang web trước mỗi scenario"""
+    """Open the web page before each scenario"""
     base_url = "https://the-internet.herokuapp.com/"
     context.driver.get(base_url)
-    context.login_page = LoginPage(context.driver)  # Tạo object Page Object Model
+    context.login_page = LoginPage(context.driver)  # Create object Page Object Model
     print(f"🌍 Opened page: {base_url}")
 
 def after_step(context, step):

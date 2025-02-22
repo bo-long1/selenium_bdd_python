@@ -5,8 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
+        # Wait up to 10s if the element does not exist yet.
         self.wait = WebDriverWait(driver, 10)
 
+        # Define locators
         self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])[1]")
         self.authentication = (By.XPATH, "//a[normalize-space()='Form Authentication']")
         self.username = (By.XPATH, "//input[@id='username']")
