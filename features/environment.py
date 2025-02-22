@@ -1,6 +1,10 @@
 import os
-from datetime import datetime
 import re
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+from features.pages.herokuapp.login_page import LoginPage
 
 def take_screenshot(context, step_name):
     try:
@@ -30,8 +34,25 @@ def take_screenshot(context, step_name):
         print(f"⚠️ Error while saving screenshot: {e}")
 
 def before_all(context):
-    if not os.path.exists("allure-results"):
-        os.makedirs("allure-results")
+    """Khởi tạo WebDriver một lần duy nhất khi bắt đầu chạy test"""
+    chrome_options = Options()
+    # chrome_options.add_argument("--headless")  # Bật chế độ headless
+    chrome_options.add_argument("--disable-gpu")  # Giúp ổn định hơn trên Windows
+    chrome_options.add_argument("--no-sandbox") # Chạy không cần quyền root (hữu ích trên Linux)
+    chrome_options.add_argument("--disable-dev-shm-usage") # Giúp giảm lỗi trên Docker/Linux
+
+    #context.driver = webdriver.Firefox()
+    #context.driver = webdriver.Edge()
+    context.driver = webdriver.Chrome(options=chrome_options)
+    context.driver.maximize_window()
+    print("🚀 WebDriver initialized!")
+
+def before_scenario(context, scenario):
+    """Mở trang web trước mỗi scenario"""
+    base_url = "https://the-internet.herokuapp.com/"
+    context.driver.get(base_url)
+    context.login_page = LoginPage(context.driver)  # Tạo object Page Object Model
+    print(f"🌍 Opened page: {base_url}")
 
 def after_step(context, step):
     if step.status == "failed":
@@ -41,4 +62,5 @@ def after_step(context, step):
 def after_all(context):
     if hasattr(context, "driver"):
         context.driver.quit()
+
 
