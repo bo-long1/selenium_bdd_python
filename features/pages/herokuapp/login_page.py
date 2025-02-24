@@ -16,7 +16,6 @@ class LoginPage:
         self.btnlogin = (By.XPATH, "//i[@class='fa fa-2x fa-sign-in']")
         self.subheader = (By.CLASS_NAME, "subheader")
 
-
     def click_AB_testing (self):
         self.driver.find_element(*self.abtesting).click()
 

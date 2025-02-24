@@ -1,8 +1,11 @@
+import json
 import os
 import re
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
 
 from features.pages.herokuapp.login_page import LoginPage
 
@@ -33,23 +36,59 @@ def take_screenshot(context, step_name):
     except Exception as e:
         print(f"⚠️ Error while saving screenshot: {e}")
 
-def before_all(context):
-    """Khởi tạo WebDriver một lần duy nhất khi bắt đầu chạy test"""
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")  # on mode headless
-    chrome_options.add_argument("--disable-gpu")  # More stable on Windows
-    chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
-    chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+def load_config():
+    """Load configuration from a JSON file"""
+    config_path = './config/testsetting.json'  # Path to JSON file
+    try:
+        with open(config_path, 'r') as f:
+            config = json.load(f)
+            return config
+    except FileNotFoundError:
+        print(f"⚠️ Config file {config_path} not found.")
+        return {}
 
-    #context.driver = webdriver.Firefox()
-    #context.driver = webdriver.Edge()
-    context.driver = webdriver.Chrome(options=chrome_options)
+
+def before_all(context):
+    config = load_config()
+    browser = config.get("browser", "chrome").lower()  # Get browser configuration from JSON, default is chrome
+
+    chrome_options = Options()
+    firefox_options = FirefoxOptions()
+    edge_options = EdgeOptions()
+
+    # Initialize WebDriver based on browser selection
+    if browser == "chrome":
+        chrome_options.add_argument("--headless")  # on mode headless
+        chrome_options.add_argument("--disable-gpu")  # More stable on Windows
+        chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
+        chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+        context.driver = webdriver.Chrome(options=chrome_options)
+
+    elif browser == "firefox":
+        # firefox_options.add_argument("--headless")  # default off mode headless
+        firefox_options.add_argument("--disable-gpu")  # More stable on Windows
+        firefox_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
+        firefox_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+        context.driver = webdriver.Firefox(options=firefox_options)
+
+    elif browser == "edge":
+        # edge_options.add_argument("--headless")  # off mode headless
+        edge_options.add_argument("--disable-gpu")  # More stable on Windows
+        edge_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
+        edge_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+        context.driver = webdriver.Edge(options=edge_options)
+
+    else:
+        print(f"⚠️ Unsupported browser: {browser}, defaulting to Chrome.")
+        context.driver = webdriver.Chrome(options=chrome_options)
+
     context.driver.maximize_window()
-    print("🚀 WebDriver initialized!")
+    print(f"🚀 WebDriver initialized with {browser.capitalize()}!")
 
 def before_scenario(context, scenario):
     """Open the web page before each scenario"""
-    base_url = "https://the-internet.herokuapp.com/"
+    config = load_config()
+    base_url = config.get("base_url")  # Get values ​​from JSON file
     context.driver.get(base_url)
     context.login_page = LoginPage(context.driver)  # Create object Page Object Model
     print(f"🌍 Opened page: {base_url}")
