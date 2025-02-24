@@ -17,7 +17,7 @@ class LoginPage:
         self.btnlogin = (By.XPATH, "//i[@class='fa fa-2x fa-sign-in']")
         self.subheader = (By.CLASS_NAME, "subheader")
         self.basicauthen = (By.XPATH, "//a[normalize-space()='Basic Auth']")
-        self.message = (By.CLASS_NAME, "div[class='example'] p")
+        self.message = (By.XPATH, "//p[contains(text(),'Congratulations! You must have the proper credenti')]")
 
     def click_AB_testing (self):
         self.driver.find_element(*self.abtesting).click()

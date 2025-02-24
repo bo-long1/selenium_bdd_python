@@ -45,14 +45,12 @@ def step_impl(context):
 @when('Click to verify basic functionality')
 def step_impl(context):
     context.login_page.click_basic_authen()
-    time.sleep(5)
 
 @when('input username "{username}" and password "{password}"')
 def step_impl(context, username, password):
     context.auth_page = BasicAuthPage(context.driver)
     context.auth_page.login_with_basic_auth(username, password, "the-internet.herokuapp.com/basic_auth")
 
-
 @then('Verify the authentication process')
 def step_impl(context):
-    assert "Congratulations! You must have the proper credentials." == context.login_page.get_message()
+    assert context.login_page.get_message() == "Congratulations! You must have the proper credentials."
