@@ -2,6 +2,8 @@ import time
 from behave import *
 from selenium.webdriver.common.by import By
 
+from features.pages.herokuapp import BasicAuthPage
+
 @given('Open the browser')
 def step_impl(context):
     pass
@@ -38,3 +40,19 @@ def step_impl(context):
 @then('Verify user login success')
 def step_impl(context):
     assert context.login_page.verify_subheader() == "Welcome to the Secure Area. When you are done click logout below."
+    context.driver.back()
+
+@when('Click to verify basic functionality')
+def step_impl(context):
+    context.login_page.click_basic_authen()
+    time.sleep(5)
+
+@when('input username "{username}" and password "{password}"')
+def step_impl(context, username, password):
+    context.auth_page = BasicAuthPage(context.driver)
+    context.auth_page.login_with_basic_auth(username, password, "the-internet.herokuapp.com/basic_auth")
+
+
+@then('Verify the authentication process')
+def step_impl(context):
+    assert "Congratulations! You must have the proper credentials." == context.login_page.get_message()

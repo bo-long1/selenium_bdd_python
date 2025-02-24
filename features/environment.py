@@ -58,7 +58,7 @@ def before_all(context):
 
     # Initialize WebDriver based on browser selection
     if browser == "chrome":
-        chrome_options.add_argument("--headless")  # on mode headless
+        # chrome_options.add_argument("--headless")  # on mode headless
         chrome_options.add_argument("--disable-gpu")  # More stable on Windows
         chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
         chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux

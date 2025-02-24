@@ -16,3 +16,7 @@ Feature: example feature on HerokuApp web
         And enter button login
         Then Verify user login success
 
+    Scenario: test basic authentication
+        When Click to verify basic functionality
+        And input username "admin" and password "admin"
+        Then Verify the authentication process

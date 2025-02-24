@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
@@ -15,6 +16,8 @@ class LoginPage:
         self.password = (By.XPATH, "//input[@id='password']")
         self.btnlogin = (By.XPATH, "//i[@class='fa fa-2x fa-sign-in']")
         self.subheader = (By.CLASS_NAME, "subheader")
+        self.basicauthen = (By.XPATH, "//a[normalize-space()='Basic Auth']")
+        self.message = (By.CLASS_NAME, "div[class='example'] p")
 
     def click_AB_testing (self):
         self.driver.find_element(*self.abtesting).click()
@@ -31,3 +34,13 @@ class LoginPage:
 
     def verify_subheader (self):
         return self.wait.until(EC.presence_of_element_located(self.subheader)).text
+    
+    def click_basic_authen (self):
+        self.driver.find_element(*self.basicauthen).click()
+    
+    def handle_auth_popup(self, url):
+        self.driver.get(url)
+
+    def get_message (self):
+        return self.wait.until(EC.presence_of_element_located(self.message)).text
+
