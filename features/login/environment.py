@@ -16,7 +16,7 @@ def take_screenshot(context, step_name):
             return
 
         # Create directory
-        screenshots_dir = f"/screenshots/{datetime.now().strftime('%Y-%m-%d')}"
+        screenshots_dir = os.path.join(os.getcwd(), "reports", "screenshots", datetime.now().strftime('%Y-%m-%d'))
         if not os.path.exists(screenshots_dir):
             os.makedirs(screenshots_dir)
 
