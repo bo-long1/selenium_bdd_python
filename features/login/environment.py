@@ -52,6 +52,7 @@ def load_config():
 def before_all(context):
     config = load_config()
     browser = config.get("browser", "chrome").lower()  # Get browser configuration from JSON, default is chrome
+    headless_mode = config.get("headless", False) # Read headless option (default is False)
 
     chrome_options = Options()
     firefox_options = FirefoxOptions()
@@ -59,32 +60,37 @@ def before_all(context):
 
     # Initialize WebDriver based on browser selection
     if browser == "chrome":
-        chrome_options.add_argument("--headless")  # on mode headless
-        chrome_options.add_argument("--disable-gpu")  # More stable on Windows
-        chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
-        chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
         context.driver = webdriver.Chrome(options=chrome_options)
-
     elif browser == "firefox":
-        # firefox_options.add_argument("--headless")  # default off mode headless
-        firefox_options.add_argument("--disable-gpu")  # More stable on Windows
-        firefox_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
-        firefox_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
         context.driver = webdriver.Firefox(options=firefox_options)
-
     elif browser == "edge":
-        # edge_options.add_argument("--headless")  # off mode headless
-        edge_options.add_argument("--disable-gpu")  # More stable on Windows
-        edge_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
-        edge_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
         context.driver = webdriver.Edge(options=edge_options)
-
     else:
         print(f"⚠️ Unsupported browser: {browser}, defaulting to Chrome.")
         context.driver = webdriver.Chrome(options=chrome_options)
 
     context.driver.maximize_window()
     print(f"🚀 WebDriver initialized with {browser.capitalize()}!")
+    
+    #headless mode
+    if headless_mode:
+        print("🔄 Running browser in headless mode...")
+        chrome_options.add_argument("--headless")
+        firefox_options.add_argument("--headless")
+        edge_options.add_argument("--headless")
+        #headless options
+        chrome_options.add_argument("--disable-gpu")  # More stable on Windows
+        chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
+        chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+
+        firefox_options.add_argument("--disable-gpu")
+        firefox_options.add_argument("--no-sandbox")
+        firefox_options.add_argument("--disable-dev-shm-usage")
+
+        edge_options.add_argument("--disable-gpu")
+        edge_options.add_argument("--no-sandbox")
+        edge_options.add_argument("--disable-dev-shm-usage")
+
 
 def before_scenario(context, scenario):
     """Open the web page before each scenario"""
