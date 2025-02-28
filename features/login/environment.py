@@ -16,7 +16,7 @@ def take_screenshot(context, step_name):
             return
 
         # Create directory
-        screenshots_dir = os.path.join(os.getcwd(), "reports", "screenshots", datetime.now().strftime('%Y-%m-%d'))
+        screenshots_dir = os.path.join("reports", "screenshots", datetime.now().strftime('%Y-%m-%d'))
         if not os.path.exists(screenshots_dir):
             os.makedirs(screenshots_dir)
 
@@ -38,7 +38,8 @@ def take_screenshot(context, step_name):
 
 def load_config():
     """Load configuration from a JSON file"""
-    config_path = './config/testsetting.json'  # Path to JSON file
+    #config_path = './config/testsetting.json'  # Path to JSON file
+    config_path = os.path.join("config","testsetting.json")
     try:
         with open(config_path, 'r') as f:
             config = json.load(f)
