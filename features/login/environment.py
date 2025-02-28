@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 
-from features.pages.herokuapp.login_page import LoginPage
+from features.login.pages.herokuapp.login_page import LoginPage
 
 def take_screenshot(context, step_name):
     try:
@@ -16,7 +16,7 @@ def take_screenshot(context, step_name):
             return
 
         # Create directory
-        screenshots_dir = f"screenshots/{datetime.now().strftime('%Y-%m-%d')}"
+        screenshots_dir = f"/screenshots/{datetime.now().strftime('%Y-%m-%d')}"
         if not os.path.exists(screenshots_dir):
             os.makedirs(screenshots_dir)
 

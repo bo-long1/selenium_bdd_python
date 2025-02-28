@@ -2,7 +2,7 @@ import time
 from behave import *
 from selenium.webdriver.common.by import By
 
-from features.pages.herokuapp import BasicAuthPage
+from features.login.pages.herokuapp import BasicAuthPage
 
 @given('Open the browser')
 def step_impl(context):

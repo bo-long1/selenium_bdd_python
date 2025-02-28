@@ -10,13 +10,14 @@ Feature: example feature on HerokuApp web
         And click a/b testing
         Then should see the title "The Internet"
 
+    Scenario: test basic authentication
+        When Click to verify basic functionality
+        And input username "admin" and password "admin"
+        Then Verify the authentication process
+
     Scenario: Click to the func Authentication
         When click func Authentication
         And input username and password
         And enter button login
         Then Verify user login success
 
-    Scenario: test basic authentication
-        When Click to verify basic functionality
-        And input username "admin" and password "admin"
-        Then Verify the authentication process
