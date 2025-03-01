@@ -7,10 +7,10 @@ class LoginPage:
     def __init__(self, driver):
         self.driver = driver
         # Wait up to 10s if the element does not exist yet.
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 15)
 
         # Define locators
-        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])[1]")
+        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])")
         self.authentication = (By.XPATH, "//a[normalize-space()='Form Authentication']")
         self.username = (By.XPATH, "//input[@id='username']")
         self.password = (By.XPATH, "//input[@id='password']")
@@ -44,3 +44,7 @@ class LoginPage:
     def get_message (self):
         return self.wait.until(EC.presence_of_element_located(self.message)).text
 
+class BasicAuthPage(LoginPage):
+    def login_with_basic_auth(self, username, password, url):
+        auth_url = f"https://{username}:{password}@{url}"  
+        self.handle_auth_popup(auth_url)
