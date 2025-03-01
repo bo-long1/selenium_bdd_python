@@ -14,12 +14,11 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 sys.path.append(parent_dir)
 
 # Import environment.py
-import environment
+import features.login.environment as environment
 
 @given('Open the browser')
 def step_impl(context):
-    # Gọi before_all để khởi tạo WebDriver
-    environment.before_all(context)
+    pass
 
 @when('go to practice test page herokuapp')
 def step_impl(context):

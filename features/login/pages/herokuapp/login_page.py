@@ -1,16 +1,15 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
         # Wait up to 10s if the element does not exist yet.
-        self.wait = WebDriverWait(driver, 15)
+        self.wait = WebDriverWait(driver, 10)
 
         # Define locators
-        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])")
+        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])123")
         self.authentication = (By.XPATH, "//a[normalize-space()='Form Authentication']")
         self.username = (By.XPATH, "//input[@id='username']")
         self.password = (By.XPATH, "//input[@id='password']")
@@ -22,6 +21,15 @@ class LoginPage:
     def click_AB_testing (self):
         self.driver.find_element(*self.abtesting).click()
 
+    def click_basic_authen (self):
+        self.driver.find_element(*self.basicauthen).click()
+    
+    def handle_auth_popup(self, url):
+        self.driver.get(url)
+
+    def get_message (self):
+        return self.wait.until(EC.presence_of_element_located(self.message)).text
+    
     def click_login_authentication (self):
         self.driver.find_element(*self.authentication).click()
 
@@ -34,15 +42,6 @@ class LoginPage:
 
     def verify_subheader (self):
         return self.wait.until(EC.presence_of_element_located(self.subheader)).text
-    
-    def click_basic_authen (self):
-        self.driver.find_element(*self.basicauthen).click()
-    
-    def handle_auth_popup(self, url):
-        self.driver.get(url)
-
-    def get_message (self):
-        return self.wait.until(EC.presence_of_element_located(self.message)).text
 
 class BasicAuthPage(LoginPage):
     def login_with_basic_auth(self, username, password, url):

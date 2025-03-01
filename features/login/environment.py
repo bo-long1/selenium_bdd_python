@@ -57,16 +57,15 @@ def before_all(context):
 
 def after_step(context, step):
     if step.status == "failed":
-        safe_step_name = re.sub(r'[^\w\-_\. ]', '_', step.name)  # Remove special characters by lib re
-        take_screenshot(context.driver, safe_step_name)
-        context.driver.back()
+        safe_step_name = re.sub(r'[^\w\-_\. ]', '_', step.name)  # Remove special characters
+        take_screenshot(context, safe_step_name)
 
 def after_all(context):
     if hasattr(context, "driver") and context.driver:
         try:
             context.driver.quit()
-            print("✅ WebDriver terminated successfully!")
+            print("==> WebDriver terminated successfully!")
         except Exception as e:
-            print(f"⚠️ Error terminating WebDriver: {e}")
+            print(f"==> Error terminating WebDriver: {e}")
 
 
