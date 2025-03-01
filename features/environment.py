@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
+from webdriver_manager.chrome import ChromeDriverManager
 
 from features.login.pages.herokuapp.login_page import LoginPage
 
@@ -60,7 +61,7 @@ def before_all(context):
 
     #headless mode
     if headless_mode:
-        print("🔄 Running browser in headless mode...")
+        print("🔄 Running browser in headless mode!")
         chrome_options.add_argument("--headless")
         firefox_options.add_argument("--headless")
         edge_options.add_argument("--headless")
@@ -96,8 +97,9 @@ def before_scenario(context, scenario):
     config = load_config()
     base_url = config.get("base_url")  # Get values ​​from JSON file
     context.driver.get(base_url)
-    context.login_page = LoginPage(context.driver)  # Create object Page Object Model
+    
     print(f"🌍 Opened page: {base_url}")
+    # context.login_page = LoginPage(context.driver)  # Create object Page Object Model
 
 def after_step(context, step):
     if step.status == "failed":
@@ -105,7 +107,11 @@ def after_step(context, step):
         take_screenshot(context, safe_step_name)
 
 def after_all(context):
-    if hasattr(context, "driver"):
-        context.driver.quit()
+    if hasattr(context, "driver") and context.driver:
+        try:
+            context.driver.quit()
+            print("✅ WebDriver terminated successfully!")
+        except Exception as e:
+            print(f"⚠️ Error terminating WebDriver: {e}")
 
 

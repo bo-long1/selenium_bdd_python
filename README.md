@@ -11,3 +11,11 @@ allure serve allure-results
 
 # cmd export static HTML report
 allure generate allure-results -o allure-report --clean
+
+# install requirement 
+pip install -r requirements.txt
+
+(pip freeze > requirements.txt
+)
+
+
