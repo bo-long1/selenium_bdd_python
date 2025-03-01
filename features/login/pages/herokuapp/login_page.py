@@ -25,9 +25,9 @@ class LoginPage:
     def click_login_authentication (self):
         self.driver.find_element(*self.authentication).click()
 
-    def input_username_and_pwd (self):
-        self.driver.find_element(*self.username).send_keys("tomsmith")
-        self.driver.find_element(*self.password).send_keys("SuperSecretPassword!")
+    def input_username_and_pwd (self, username, password):
+        self.driver.find_element(*self.username).send_keys(username)
+        self.driver.find_element(*self.password).send_keys(password)
     
     def click_btn_login (self):
         self.driver.find_element(*self.btnlogin).click()

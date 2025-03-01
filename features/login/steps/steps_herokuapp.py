@@ -8,7 +8,7 @@ from features.login.pages.herokuapp import BasicAuthPage
 def step_impl(context):
     pass
 
-@when('go to practice test page "https://the-internet.herokuapp.com/"')
+@when('go to practice test page herokuapp')
 def step_impl(context):
     pass
 
@@ -25,23 +25,6 @@ def step_impl(context, title = "The Internet"):
     assert context.driver.title == title
     context.driver.back()
 
-@when('click func Authentication')
-def step_impl(context):
-    context.login_page.click_login_authentication()
-
-@when('input username and password')
-def step_impl(context):
-    context.login_page.input_username_and_pwd()
-
-@when('enter button login')
-def step_impl(context):
-    context.login_page.click_btn_login()
-
-@then('Verify user login success')
-def step_impl(context):
-    assert context.login_page.verify_subheader() == "Welcome to the Secure Area. When you are done click logout below."
-    context.driver.back()
-
 @when('Click to verify basic functionality')
 def step_impl(context):
     context.login_page.click_basic_authen()
@@ -54,3 +37,20 @@ def step_impl(context, username, password):
 @then('Verify the authentication process')
 def step_impl(context):
     assert context.login_page.get_message() == "Congratulations! You must have the proper credentials."
+
+@when('click func Authentication')
+def step_impl(context):
+    context.login_page.click_login_authentication()
+
+@when('input into the username "{username}" and password "{password}"')
+def step_impl(context, username, password):
+    context.login_page.input_username_and_pwd(username, password)
+
+@when('enter button login')
+def step_impl(context):
+    context.login_page.click_btn_login()
+
+@then('Verify user login success')
+def step_impl(context):
+    assert context.login_page.verify_subheader() == "Welcome to the Secure Area. When you are done click logout below."
+    context.driver.back()

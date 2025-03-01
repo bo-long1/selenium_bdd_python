@@ -58,20 +58,6 @@ def before_all(context):
     firefox_options = FirefoxOptions()
     edge_options = EdgeOptions()
 
-    # Initialize WebDriver based on browser selection
-    if browser == "chrome":
-        context.driver = webdriver.Chrome(options=chrome_options)
-    elif browser == "firefox":
-        context.driver = webdriver.Firefox(options=firefox_options)
-    elif browser == "edge":
-        context.driver = webdriver.Edge(options=edge_options)
-    else:
-        print(f"⚠️ Unsupported browser: {browser}, defaulting to Chrome.")
-        context.driver = webdriver.Chrome(options=chrome_options)
-
-    context.driver.maximize_window()
-    print(f"🚀 WebDriver initialized with {browser.capitalize()}!")
-    
     #headless mode
     if headless_mode:
         print("🔄 Running browser in headless mode...")
@@ -91,6 +77,19 @@ def before_all(context):
         edge_options.add_argument("--no-sandbox")
         edge_options.add_argument("--disable-dev-shm-usage")
 
+    # Initialize WebDriver based on browser selection
+    if browser == "chrome":
+        context.driver = webdriver.Chrome(options=chrome_options)
+    elif browser == "firefox":
+        context.driver = webdriver.Firefox(options=firefox_options)
+    elif browser == "edge":
+        context.driver = webdriver.Edge(options=edge_options)
+    else:
+        print(f"⚠️ Unsupported browser: {browser}, defaulting to Chrome.")
+        context.driver = webdriver.Chrome(options=chrome_options)
+
+    context.driver.maximize_window()
+    print(f"🚀 WebDriver initialized with {browser.capitalize()}!")
 
 def before_scenario(context, scenario):
     """Open the web page before each scenario"""
