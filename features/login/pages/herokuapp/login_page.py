@@ -9,7 +9,7 @@ class LoginPage:
         self.wait = WebDriverWait(driver, 10)
 
         # Define locators
-        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])123")
+        self.abtesting = (By.XPATH, "(//a[normalize-space()='A/B Testing'])")
         self.authentication = (By.XPATH, "//a[normalize-space()='Form Authentication']")
         self.username = (By.XPATH, "//input[@id='username']")
         self.password = (By.XPATH, "//input[@id='password']")

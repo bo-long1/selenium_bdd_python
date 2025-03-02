@@ -2,12 +2,12 @@ import re
 import os
 import sys
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 
 # Add path to helpers/
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from helpers.config import load_config
 from helpers.utils import take_screenshot
@@ -15,45 +15,34 @@ from helpers.utils import take_screenshot
 
 def before_all(context):
     config = load_config()
-    browser = config.get("browser", "chrome").lower()  # Get browser configuration from JSON, default is chrome
-    headless_mode = config.get("headless", False) # Read headless option (default is False)
+    browser = config.get("browser", "chrome").lower()
+    headless_mode = config.get("headless", False)
 
-    chrome_options = Options()
-    firefox_options = FirefoxOptions()
-    edge_options = EdgeOptions()
+    # Initialize browser-based options
+    options_map = {
+        "chrome": ChromeOptions(),
+        "firefox": FirefoxOptions(),
+        "edge": EdgeOptions(),
+    }
+    options = options_map.get(browser, ChromeOptions())
 
-    #headless mode
+    # If running headless mode, add general options
     if headless_mode:
-        print("Running browser in headless mode!")
-        chrome_options.add_argument("--headless")
-        firefox_options.add_argument("--headless")
-        edge_options.add_argument("--headless")
-        #headless options
-        chrome_options.add_argument("--disable-gpu")  # More stable on Windows
-        chrome_options.add_argument("--no-sandbox") # Run without root privileges (useful on Linux)
-        chrome_options.add_argument("--disable-dev-shm-usage") # Helps reduce errors on Docker/Linux
+        print("🚀 Running browser in headless mode!")
+        for arg in ["--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"]:
+            options.add_argument(arg)
 
-        firefox_options.add_argument("--disable-gpu")
-        firefox_options.add_argument("--no-sandbox")
-        firefox_options.add_argument("--disable-dev-shm-usage")
-
-        edge_options.add_argument("--disable-gpu")
-        edge_options.add_argument("--no-sandbox")
-        edge_options.add_argument("--disable-dev-shm-usage")
-
-    # Initialize WebDriver based on browser selection
-    if browser == "chrome":
-        context.driver = webdriver.Chrome(options=chrome_options)
-    elif browser == "firefox":
-        context.driver = webdriver.Firefox(options=firefox_options)
-    elif browser == "edge":
-        context.driver = webdriver.Edge(options=edge_options)
-    else:
-        print(f"Unsupported browser: {browser}, defaulting to Chrome.")
-        context.driver = webdriver.Chrome(options=chrome_options)
+    # Initialize WebDriver
+    driver_map = {
+        "chrome": webdriver.Chrome,
+        "firefox": webdriver.Firefox,
+        "edge": webdriver.Edge,
+    }
+    context.driver = driver_map.get(browser, webdriver.Chrome)(options=options)
 
     context.driver.maximize_window()
-    print(f"WebDriver initialized with {browser.capitalize()}!")
+    print(f"✅ WebDriver initialized with {browser.capitalize()}!")
+gt
 
 def after_step(context, step):
     if step.status == "failed":

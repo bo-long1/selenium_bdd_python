@@ -6,12 +6,12 @@ from behave import *
 from features.login.pages.herokuapp.login_page import BasicAuthPage
 
 # Add path to helpers/
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from helpers.webdriver_helper import get_login_page
 
 # Add sys.path to import environment.py
-parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-sys.path.append(parent_dir)
+# parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+# sys.path.append(parent_dir)
 
 # Import environment.py
 import features.login.environment as environment

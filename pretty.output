@@ -1,0 +1,10 @@
+Feature: example feature on HerokuApp web # features/login/herokuapp.feature:1
+
+  Background: Access to the herokuapp page  # features/login/herokuapp.feature:3
+
+  Scenario: Example scenario click into the func a/b testing  # features/login/herokuapp.feature:8
+    Given Open the browser                                    # features/login/steps/steps_herokuapp.py:19
+    When go to practice test page herokuapp                   # features/login/steps/steps_herokuapp.py:23
+    When click a/b testing                                    # features/login/steps/steps_herokuapp.py:29
+    Then should see the title "The Internet"                  # features/login/steps/steps_herokuapp.py:37
+
