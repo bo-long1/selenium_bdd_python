@@ -6,7 +6,7 @@ from helpers.config import load_config
 
 def headless_mode(context):
     config = load_config()  # Lấy cấu hình từ helpers/config.py
-    browser = config.get("browser", "chrome").lower()  # Default là Chrome nếu không có
+    browser = config.get("browser").lower()  # Default là Chrome nếu không có
     headless = config.get("headless", False)
 
     # Initialize browser-based options
@@ -33,4 +33,4 @@ def headless_mode(context):
     }
     context.driver = driver_map.get(browser)(options=options)
     context.driver.maximize_window()
-    print(f"✅ WebDriver initialized with {browser.capitalize()}!")
+    print(f"==> WebDriver initialized with {browser.capitalize()}!")

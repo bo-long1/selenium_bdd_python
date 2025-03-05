@@ -1,0 +1,12 @@
+2025-03-06 01:44:24,740 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-06 01:44:32,038 - AutomationTest - INFO - [PASS] Scenario 'Example scenario click into the func a/b testing' passed! Going back.
+2025-03-06 01:44:32,062 - AutomationTest - INFO - 🏁 Test suite finished!
+2025-03-06 01:45:11,135 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-06 01:45:18,337 - AutomationTest - INFO - [PASS] Scenario 'Example scenario click into the func a/b testing' passed! Going back.
+2025-03-06 01:45:18,357 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-06 01:46:48,973 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-06 01:46:55,790 - AutomationTest - INFO - [PASS] Scenario 'Example scenario click into the func a/b testing' passed! Going back.
+2025-03-06 01:46:57,172 - AutomationTest - INFO - [PASS] Scenario 'test basic authentication' passed! Going back.
+2025-03-06 01:46:59,332 - AutomationTest - INFO - [PASS] Scenario 'Click to the func Authentication -- @1.1 ' passed! Going back.
+2025-03-06 01:47:00,999 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
+2025-03-06 01:47:01,000 - AutomationTest - INFO - [INFO] Test suite finished!
