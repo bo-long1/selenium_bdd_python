@@ -42,7 +42,6 @@ def before_all(context):
 
     context.driver.maximize_window()
     print(f"✅ WebDriver initialized with {browser.capitalize()}!")
-gt
 
 def after_step(context, step):
     if step.status == "failed":
