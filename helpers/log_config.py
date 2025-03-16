@@ -16,7 +16,7 @@ logging_config = {
             "filename": LOG_FILE,
             "formatter": "detailed",
             "level": "DEBUG",
-            "encoding": "utf-8"  # Thêm encoding UTF-8
+            "encoding": "utf-8"  # config encoding UTF-8
         },
         "console": {
             "class": "logging.StreamHandler",

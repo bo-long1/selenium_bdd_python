@@ -5,8 +5,8 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from helpers.config import load_config
 
 def headless_mode(context):
-    config = load_config()  # Lấy cấu hình từ helpers/config.py
-    browser = config.get("browser").lower()  # Default là Chrome nếu không có
+    config = load_config()  # Load config from helpers/config.py
+    browser = config.get("browser").lower()
     headless = config.get("headless", False)
 
     # Initialize browser-based options

@@ -1,11 +1,9 @@
 import time
 from behave import *
-from features.environment import *
-from features.login.pages.herokuapp.login_page import BasicAuthPage
+from environment import *
+from steps.pages.login_page import BasicAuthPage
 # Add path to helpers/
 from helpers.webdriver_helper import get_login_page
-# Import environment.py
-import features.environment as environment
 from helpers.config import load_config
 
 @given('Open the browser')

@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5716","Example scenario click into the func a/b testing","","Mon Mar 17 01:06:54 ICT 2025","passed","Mon Mar 17 01:06:59 ICT 2025","","","",""
+"","1549","Click to the func Authentication -- @1.2 ","","Mon Mar 17 01:16:32 ICT 2025","failed","Mon Mar 17 01:16:33 ICT 2025","","","",""
+"","5484","Click to the func Authentication -- @1.1 ","","Mon Mar 17 01:16:26 ICT 2025","passed","Mon Mar 17 01:16:32 ICT 2025","","","",""
