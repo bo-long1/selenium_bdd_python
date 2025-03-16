@@ -490,3 +490,6 @@
 2025-03-17 01:39:44,085 - AutomationTest - INFO - [INFO] Starting the test suite...
 2025-03-17 01:39:45,905 - AutomationTest - INFO - ✅ Allure results will be saved at: reports/allure-results
 2025-03-17 01:39:57,169 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:47:09,962 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:47:11,632 - AutomationTest - INFO - ✅ Allure results will be saved at: reports/allure-results
+2025-03-17 01:47:23,343 - AutomationTest - INFO - [INFO] Test suite finished!

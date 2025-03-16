@@ -3,8 +3,8 @@ import allure  # type: ignore
 import os
 
 from helpers.log_config import logger
-from helpers.utils import take_screenshot
-from helpers.allure_report import generate_allure_report, open_allure_report  # Import file mới
+from helpers.screenshot import take_screenshot
+from helpers.allure_report import generate_allure_report, open_allure_report
 from driver.BrowserType import headless_mode
 
 def before_all(context):
