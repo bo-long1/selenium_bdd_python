@@ -411,3 +411,82 @@
 2025-03-17 01:16:33,167 - AutomationTest - INFO - Running step: Verify user login success
 2025-03-17 01:16:33,878 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
 2025-03-17 01:16:33,882 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:27:03,601 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:27:05,345 - AutomationTest - INFO - ✅ Allure results will be saved at: reports\allure-results\2025-03-17
+2025-03-17 01:27:05,349 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:27:05,350 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:27:08,757 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:27:09,434 - AutomationTest - INFO - Running step: input into the username "tomsmith" and password "SuperSecretPassword!"
+2025-03-17 01:27:09,583 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:27:10,233 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:27:10,261 - AutomationTest - INFO - [PASS] Scenario 'Click to the func Authentication -- @1.1 ' passed! Going back.
+2025-03-17 01:27:10,286 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:27:10,288 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:27:10,619 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:27:10,993 - AutomationTest - INFO - Running step: input into the username "admin123" and password "admin"
+2025-03-17 01:27:11,078 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:27:11,118 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:27:11,861 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
+2025-03-17 01:27:11,864 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:32:28,506 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:32:30,186 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:32:30,187 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:32:33,468 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:32:34,416 - AutomationTest - INFO - Running step: input into the username "tomsmith" and password "SuperSecretPassword!"
+2025-03-17 01:32:34,531 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:32:35,234 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:32:35,260 - AutomationTest - INFO - [PASS] Scenario 'Click to the func Authentication -- @1.1 ' passed! Going back.
+2025-03-17 01:32:35,280 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:32:35,282 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:32:35,593 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:32:35,962 - AutomationTest - INFO - Running step: input into the username "admin123" and password "admin"
+2025-03-17 01:32:36,055 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:32:36,095 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:32:36,810 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
+2025-03-17 01:32:36,812 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:33:25,509 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:33:27,608 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:33:27,610 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:33:30,632 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:33:31,582 - AutomationTest - INFO - Running step: input into the username "tomsmith" and password "SuperSecretPassword!"
+2025-03-17 01:33:31,694 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:33:31,742 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:33:32,870 - AutomationTest - INFO - [PASS] Scenario 'Click to the func Authentication -- @1.1 ' passed! Going back.
+2025-03-17 01:33:32,890 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:33:32,891 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:33:33,218 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:33:33,587 - AutomationTest - INFO - Running step: input into the username "admin123" and password "admin"
+2025-03-17 01:33:33,691 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:33:34,320 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:33:34,472 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
+2025-03-17 01:33:34,476 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:33:55,588 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:33:57,196 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:33:57,197 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:34:00,471 - AutomationTest - INFO - Running step: click a/b testing
+2025-03-17 01:34:02,856 - AutomationTest - INFO - Running step: should see the title "The Internet"
+2025-03-17 01:34:02,935 - AutomationTest - INFO - [PASS] Scenario 'Example scenario click into the func a/b testing' passed! Going back.
+2025-03-17 01:34:02,959 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:34:02,960 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:34:03,275 - AutomationTest - INFO - Running step: Click to verify basic functionality
+2025-03-17 01:34:03,661 - AutomationTest - INFO - Running step: input username "admin" and password "admin"
+2025-03-17 01:34:04,295 - AutomationTest - INFO - Running step: Verify the authentication process
+2025-03-17 01:34:04,332 - AutomationTest - INFO - [PASS] Scenario 'test basic authentication' passed! Going back.
+2025-03-17 01:34:04,379 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:34:04,381 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:34:04,708 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:34:05,950 - AutomationTest - INFO - Running step: input into the username "tomsmith" and password "SuperSecretPassword!"
+2025-03-17 01:34:06,069 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:34:06,130 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:34:06,758 - AutomationTest - INFO - [PASS] Scenario 'Click to the func Authentication -- @1.1 ' passed! Going back.
+2025-03-17 01:34:06,780 - AutomationTest - INFO - Running step: Open the browser
+2025-03-17 01:34:06,785 - AutomationTest - INFO - Running step: go to practice test page herokuapp
+2025-03-17 01:34:07,107 - AutomationTest - INFO - Running step: click func Authentication
+2025-03-17 01:34:07,515 - AutomationTest - INFO - Running step: input into the username "admin123" and password "admin"
+2025-03-17 01:34:07,661 - AutomationTest - INFO - Running step: enter button login
+2025-03-17 01:34:07,727 - AutomationTest - INFO - Running step: Verify user login success
+2025-03-17 01:34:08,474 - AutomationTest - ERROR - [ERROR] Scenario 'Click to the func Authentication -- @1.2 ' failed!
+2025-03-17 01:34:08,477 - AutomationTest - INFO - [INFO] Test suite finished!
+2025-03-17 01:39:44,085 - AutomationTest - INFO - [INFO] Starting the test suite...
+2025-03-17 01:39:45,905 - AutomationTest - INFO - ✅ Allure results will be saved at: reports/allure-results
+2025-03-17 01:39:57,169 - AutomationTest - INFO - [INFO] Test suite finished!

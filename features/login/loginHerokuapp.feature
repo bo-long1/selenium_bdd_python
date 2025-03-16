@@ -4,14 +4,14 @@ Feature: example feature on HerokuApp web
         Given Open the browser
         When go to practice test page herokuapp
 
-    # Scenario: Example scenario click into the func a/b testing
-    #     When click a/b testing
-    #     Then should see the title "The Internet"
+    Scenario: Example scenario click into the func a/b testing
+        When click a/b testing
+        Then should see the title "The Internet"
 
-    # Scenario: test basic authentication
-    #     When Click to verify basic functionality
-    #     And input username "admin" and password "admin"
-    #     Then Verify the authentication process
+    Scenario: test basic authentication
+        When Click to verify basic functionality
+        And input username "admin" and password "admin"
+        Then Verify the authentication process
 
     Scenario Outline: Click to the func Authentication
         When click func Authentication

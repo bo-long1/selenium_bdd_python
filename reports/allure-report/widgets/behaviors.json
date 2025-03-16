@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"96c2e730a57700a9181acbdc5d1fb5cc","name":"example feature on HerokuApp web","statistic":{"failed":1,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":3}}]}
+{"total":1,"items":[{"uid":"96c2e730a57700a9181acbdc5d1fb5cc","name":"example feature on HerokuApp web","statistic":{"failed":1,"broken":1,"skipped":0,"passed":2,"unknown":0,"total":4}}]}
