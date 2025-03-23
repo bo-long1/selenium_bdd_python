@@ -1,4 +1,4 @@
-from features.steps.pages.login_page import LoginPage
+from features.herokuapp.steps.pages.login_page import LoginPage
 
 def get_login_page(context):
     """This function ensures that context.login_page is only initialized when needed."""

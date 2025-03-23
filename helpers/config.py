@@ -10,5 +10,5 @@ def load_config():
             config = json.load(f)
             return config
     except FileNotFoundError:
-        print(f"⚠️ Config file {config_path} not found.")
+        print(f"[ERROR]: Config file {config_path} not found.")
         return {}

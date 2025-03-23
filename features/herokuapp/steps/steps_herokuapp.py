@@ -10,10 +10,11 @@ from helpers.config import load_config
 def step_impl(context):
     pass
 
+
 @when('go to practice test page herokuapp')
 def step_impl(context):
-    context.driver.get(load_config().get("base_url"))
-
+    #context.driver.get(load_config().get("base_url"))
+    get_login_page(context).driver.get(load_config().get("base_url"))
 
 """Scenario 1: Example scenario click into the func a/b testing"""
 @when('click a/b testing')
