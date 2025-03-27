@@ -1,7 +1,12 @@
 import logging
 import logging.config
+import os
 
 LOG_FILE = "app.log"
+
+# Remove the existing log file if it exists
+if os.path.exists(LOG_FILE):
+    os.remove(LOG_FILE)
 
 logging_config = {
     "version": 1,

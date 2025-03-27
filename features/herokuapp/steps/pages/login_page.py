@@ -16,7 +16,7 @@ class LoginPage:
         self.username = (By.XPATH, "//input[@id='username']")
         self.password = (By.XPATH, "//input[@id='password']")
         self.btnlogin = (By.XPATH, "//i[@class='fa fa-2x fa-sign-in']")
-        self.subheader = (By.CLASS_NAME, "subheader")
+        self.subheader = (By.XPATH, "//h4[contains(text(), 'Welcome to the Secure Area')]")
         self.basicauthen = (By.XPATH, "//a[normalize-space()='Basic Auth']")
         self.message = (By.XPATH, "//p[contains(text(),'Congratulations! You must have the proper credenti')]")
 
@@ -30,7 +30,7 @@ class LoginPage:
         self.driver.get(url)
 
     def get_message (self):
-        return self.wait.until(EC.presence_of_element_located(self.message)).text
+        return self.wait.until(EC.presence_of_element_located(self.message)).text # using Explicit Wait
     
     def click_login_authentication (self):
         self.driver.find_element(*self.authentication).click()
@@ -43,7 +43,7 @@ class LoginPage:
         self.driver.find_element(*self.btnlogin).click()
 
     def verify_subheader (self):
-        return self.wait.until(EC.presence_of_element_located(self.subheader)).text
+        return self.wait.until(EC.presence_of_element_located(self.subheader)).text # using Explicit Wait
 
 class BasicAuthPage(LoginPage):
     def login_with_basic_auth(self, username, password, url):

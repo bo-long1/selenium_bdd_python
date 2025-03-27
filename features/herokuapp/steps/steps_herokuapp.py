@@ -1,20 +1,7 @@
 import time
 from behave import *
-from environment import *
 from steps.pages.login_page import BasicAuthPage
-# Add path to helpers/
 from helpers.webdriver_helper import get_login_page
-from helpers.config import load_config
-
-@given('Open the browser')
-def step_impl(context):
-    pass
-
-
-@when('go to practice test page herokuapp')
-def step_impl(context):
-    #context.driver.get(load_config().get("base_url"))
-    get_login_page(context).driver.get(load_config().get("base_url"))
 
 """Scenario 1: Example scenario click into the func a/b testing"""
 @when('click a/b testing')
@@ -23,7 +10,7 @@ def step_impl(context):
     time.sleep(2)
 
 @then('should see the title "The Internet"')
-def step_impl(context, title = "The Internet"):
+def step_impl(context, title="The Internet"):
     assert get_login_page(context).driver.title == title
 
 """Scenario 2: test basic authentication"""

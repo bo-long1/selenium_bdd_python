@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 def take_screenshot(context, step_name):
-    screenshots_dir = os.path.join("reports", "screenshots", datetime.now().strftime('%Y-%m-%d'))
+    screenshots_dir = os.path.join("screenshots", datetime.now().strftime('%Y-%m-%d'))
     if not os.path.exists(screenshots_dir):
         os.makedirs(screenshots_dir)
     
