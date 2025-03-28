@@ -1,11 +1,11 @@
-2025-03-28 02:51:19,640 - AutomationTest - INFO - Starting the test suite...
-2025-03-28 02:51:19,641 - AutomationTest - INFO - Browser opened and navigated to: https://the-internet.herokuapp.com/
-2025-03-28 02:51:21,445 - AutomationTest - INFO - Starting scenario: Example scenario click into the func a/b testing
-2025-03-28 02:51:24,803 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
-2025-03-28 02:51:27,278 - AutomationTest - INFO - Starting scenario: Test basic authentication
-2025-03-28 02:51:28,113 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
-2025-03-28 02:51:29,183 - AutomationTest - INFO - Starting scenario: Click to the func Authentication -- @1.1 
-2025-03-28 02:51:29,582 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
-2025-03-28 02:51:31,919 - AutomationTest - INFO - Starting scenario: Click to the func Authentication -- @1.2 
-2025-03-28 02:51:32,276 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
-2025-03-28 02:51:45,359 - AutomationTest - INFO - Test suite finished!
+2025-03-28 16:22:42,733 - AutomationTest - INFO - Starting the test suite...
+2025-03-28 16:22:42,749 - AutomationTest - INFO - Browser opened and navigated to: https://the-internet.herokuapp.com/
+2025-03-28 16:22:45,102 - AutomationTest - INFO - Starting scenario: Example scenario click into the func a/b testing
+2025-03-28 16:22:49,181 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
+2025-03-28 16:22:51,659 - AutomationTest - INFO - Starting scenario: Test basic authentication
+2025-03-28 16:22:51,985 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
+2025-03-28 16:22:52,979 - AutomationTest - INFO - Starting scenario: Click to the func Authentication -- @1.1 
+2025-03-28 16:22:53,292 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
+2025-03-28 16:22:55,293 - AutomationTest - INFO - Starting scenario: Click to the func Authentication -- @1.2 
+2025-03-28 16:22:55,642 - AutomationTest - INFO - Navigated to: https://the-internet.herokuapp.com/
+2025-03-28 16:23:08,467 - AutomationTest - INFO - Test suite finished!

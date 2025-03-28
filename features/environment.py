@@ -20,8 +20,8 @@ def before_all(context):
     # Safely recreate the results directory
     if os.path.exists(results_dir):
         shutil.rmtree(results_dir) # Remove the directory and all its contents
-        os.makedirs(results_dir, exist_ok=True) # Create the directory if it doesn't exist
-        os.environ["ALLURE_RESULTS_DIR"] = results_dir # Set the environment variable
+    os.makedirs(results_dir, exist_ok=True) # Create the directory if it doesn't exist
+    os.environ["ALLURE_RESULTS_DIR"] = results_dir # Set the environment variable
 
 def before_scenario(context, scenario):
     """
@@ -47,13 +47,9 @@ def after_step(context, step):
         except Exception as e:
             logger.error(f"Failed to attach screenshot: {e}")
 
-
 def after_all(context):
     if hasattr(context, "driver") and getattr(context, "driver"):
         logger.info("Test suite finished!")
         context.driver.quit()
+        generate_allure_report()
 
-    # Generate & Open Allure Report
-    report_dir = generate_allure_report()
-    if report_dir:
-        open_allure_report(report_dir)
